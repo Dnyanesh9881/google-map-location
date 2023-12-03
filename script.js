@@ -36,8 +36,8 @@ button.addEventListener("click", () => {
            <div class="Weather-info">Humidity: ${data.main.humidity} %</div>
            <div class="Weather-info">Time Zone: ${data.timezone}</div>
            <div class="Weather-info">Pressure: ${data.main.pressure} millibars</div>
-           <div class="Weather-info">Wind Direction: ${data.name}</div>
-           <div class="Weather-info">UV Index: ${data.name}</div>
+           <div class="Weather-info">Wind angle: ${data.wind.deg} degree</div>
+           <div class="Weather-info">Country: ${data.sys.country} </div>
            <div class="Weather-info">Feels Like: ${data.main.feels_like} °C</div>`;
     }
     fetchWheather();
