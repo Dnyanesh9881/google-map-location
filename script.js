@@ -24,25 +24,18 @@ button.addEventListener("click", () => {
 
     async function fetchWheather() {
       let response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${API_KEY}&lang=en`
+        `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${API_KEY}&lang=en&units=metric`
       );
       let data1 = await response.json();
       weatherAdd(data1);
       console.log(data1);
     }
-    //         let lang='en';
-    //             let response=fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${API_KEY}&lang=${lang}`)
-    // response.then(data=>{
-    //     weatherAdd(data)
-    // })
-    //   https://api.openweathermap.org/data/2.5/weather?lat=21.1458004&lon=79.0881546&appid=a059d01100076699ed971258da736401
-    //
     function weatherAdd(data) {
       weather.innerHTML = ` <div class="Weather-info">Location: ${data.name}</div>
            <div class="Weather-info">Wind Speed: ${data.wind.speed} Km/h</div>
            <div class="Weather-info">Humidity: ${data.main.humidity} %</div>
            <div class="Weather-info">Time Zone: ${data.timezone}</div>
-           <div class="Weather-info">Pressure: ${data.main.pressure} atm</div>
+           <div class="Weather-info">Pressure: ${data.main.pressure} millibars</div>
            <div class="Weather-info">Wind Direction: ${data.name}</div>
            <div class="Weather-info">UV Index: ${data.name}</div>
            <div class="Weather-info">Feels Like: ${data.main.feels_like} °C</div>`;
